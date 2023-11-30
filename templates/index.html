@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo</title>
+</head>
+<body>
+    <h2>My Django - Azure Todo</h2>
+    <ul>
+    {% for item in todo %}
+    <li> 
+        {{ item.title }}
+        {% if item.completed %}
+             completed
+        {% else %}
+            not completed
+        {% endif %}
+    </li>
+    {% endfor %}
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add(+)</button>
+    </form>
+</body>
+</html>
